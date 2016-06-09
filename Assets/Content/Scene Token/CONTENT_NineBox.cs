@@ -24,6 +24,8 @@ public class CONTENT_NineBox : MonoBehaviour
             return;
         }
         var size = box.size;
+        var offset = -box.pivot;
+        offset.Scale(size);
 //        print(size);
 
         var lef = outer;
@@ -37,17 +39,17 @@ public class CONTENT_NineBox : MonoBehaviour
         var cenSize = size.x - lef - rig;
         var midSize = size.y - top - bot;
 
-        sprites[0].transform.localPosition = new Vector2(0,             0);
-        sprites[1].transform.localPosition = new Vector2(lef,           0);
-        sprites[2].transform.localPosition = new Vector2(lef + cenSize, 0);
+        sprites[0].transform.localPosition = new Vector2(0,             0) + offset;
+        sprites[1].transform.localPosition = new Vector2(lef,           0) + offset;
+        sprites[2].transform.localPosition = new Vector2(lef + cenSize, 0) + offset;
 
-        sprites[3].transform.localPosition = new Vector2(0,             top);
-        sprites[4].transform.localPosition = new Vector2(lef,           top);
-        sprites[5].transform.localPosition = new Vector2(lef + cenSize, top);
+        sprites[3].transform.localPosition = new Vector2(0,             top) + offset;
+        sprites[4].transform.localPosition = new Vector2(lef,           top) + offset;
+        sprites[5].transform.localPosition = new Vector2(lef + cenSize, top) + offset;
 
-        sprites[6].transform.localPosition = new Vector2(0,             top + midSize);
-        sprites[7].transform.localPosition = new Vector2(lef,           top + midSize);
-        sprites[8].transform.localPosition = new Vector2(lef + cenSize, top + midSize);
+        sprites[6].transform.localPosition = new Vector2(0,             top + midSize) + offset;
+        sprites[7].transform.localPosition = new Vector2(lef,           top + midSize) + offset;
+        sprites[8].transform.localPosition = new Vector2(lef + cenSize, top + midSize) + offset;
 
         var cenScale = cenSize / cen;
         var midScale = midSize / mid;
